@@ -3,10 +3,21 @@ title: "p8105_hw1_hn2339"
 output: github_document
 ---
 
-```{r include=FALSE}
+```{r setup,include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 ```{r}
+# random sample of size 10 from unifom distrubution [0,5]
 sample_random = runif(10, min = 0, max = 5)
+# show the random result 
+sample_random
+# take the mean of the variable 
+mean(sample_random)
 ```
+
+
+
+
+
 
