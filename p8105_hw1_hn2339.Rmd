@@ -15,7 +15,8 @@ sample_random
 # take the mean of the variable 
 mean(sample_random)
 # whether the elements from the sample > 2 
-sample_random > 2 
+logic_vector = c(sample_random > 2)
+is.logical(logic_vector)
 ```
 
 ```{r}
@@ -38,7 +39,7 @@ mean(me.vector)
 
 ```{r include=FALSE}
 # convert logical variables to numeric 
-as.numeric(sample_random)
+as.numeric(logic_vector)
 # convert character variables to numeric 
 as.numeric(character)
 # convert factor variables to numberic 
@@ -53,5 +54,18 @@ as.numeric(character_factor_numeric)
 factor_character = as.character(me.vector)
 as.numeric(factor_character)
 ```
+
+```{r HW1_Question2}
+set.seed(1)
+library(tidyverse)
+plot_df = tibble (
+  x = rnorm(1000, mean = 0, sd = 1),
+  y = rnorm(1000, mean = 0, sd = 1),
+  vector_logical = c(x + y > 0),
+  c= median(x),
+)
+ggplot(plot_df, aes(x = x, y =y)) + geom_point()
+```
+
 
 
