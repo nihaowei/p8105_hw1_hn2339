@@ -36,5 +36,22 @@ length(factor.me.vector)
 mean(me.vector)
 ```
 
+```{r include=FALSE}
+# convert logical variables to numeric 
+as.numeric(sample_random)
+# convert character variables to numeric 
+as.numeric(character)
+# convert factor variables to numberic 
+as.numeric(me.vector)
+```
+
+```{r}
+# conver character to factor to numeric is successful 
+character_factor_numeric = as.factor(character)
+as.numeric(character_factor_numeric)
+# convert factor to character is successful but character to numeric is not successful 
+factor_character = as.character(me.vector)
+as.numeric(factor_character)
+```
 
 
