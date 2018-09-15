@@ -15,8 +15,8 @@ sample_random
 # take the mean of the variable 
 mean(sample_random)
 # whether the elements from the sample > 2 
-logic_vector = c(sample_random > 2)
-is.logical(logic_vector)
+logical_vector = sample_random > 2
+typeof(logical_vector)
 ```
 
 ```{r}
@@ -39,7 +39,7 @@ mean(me.vector)
 
 ```{r include=FALSE}
 # convert logical variables to numeric 
-as.numeric(logic_vector)
+as.numeric(logical_vector)
 # convert character variables to numeric 
 as.numeric(character)
 # convert factor variables to numberic 
@@ -56,13 +56,16 @@ as.numeric(factor_character)
 ```
 
 ```{r HW1_Question2}
+#from the environment, the size of plot_df is 1000, the mean of x is - 0.01164814 the median of x is -0.03532423, 49% of the logical vector is true 
 set.seed(1)
 library(tidyverse)
 plot_df = tibble (
   x = rnorm(1000, mean = 0, sd = 1),
   y = rnorm(1000, mean = 0, sd = 1),
   vector_logical = c(x + y > 0),
-  c= median(x),
+  typeof(vector_logical),
+  median(x),
+  mean(x),
 )
 ggplot(plot_df, aes(x = x, y =y)) + geom_point()
 ```
