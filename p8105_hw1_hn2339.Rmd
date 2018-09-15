@@ -66,8 +66,10 @@ plot_df = tibble (
   typeof(vector_logical),
   median(x),
   mean(x),
+  numeric_vector = as.numeric(vector_logical),
+  factor_vector = as.factor(vector_logical)
 )
-ggplot(plot_df, aes(x = x, y =y)) + geom_point()
+ggplot(plot_df, aes(x = x, y = y, col = "red" )) + geom_point()
 ```
 
 
