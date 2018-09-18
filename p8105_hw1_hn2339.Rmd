@@ -1,5 +1,7 @@
 ---
 title: "p8105_hw1_hn2339"
+author: Haowei Ni 
+date: 09/18/2018
 output: github_document
 ---
 
@@ -68,12 +70,14 @@ plot_df = tibble(
   mean(x),
   n = as.numeric(vector_logical),
   f = as.factor(vector_logical)
-)
-ggplot(plot_df, aes(x = x, y = y, col = "red" )) + geom_point()
+) 
+  
+ggplot(plot_df, aes(x = x, y = y, color = vector_logical )) + geom_point()
 ggsave("plot_df.pdf")
-ggplot(plot_df, aes(x = n, y = f, col = "black" )) + geom_point()
-ggplot(plot_df, aes(x = f, y = n, col = "blue" )) + geom_point()
-```
+ggplot(plot_df, aes(x = n, y = f, col = vector_logical )) + geom_point()
+ggplot(plot_df, aes(x = f, y = n, col = vector_logical )) + geom_point()
 
+```
+#The size of plot_df is `r dim(plot_df$x)`, the mean of x is `r mean(plot_df$x)`, the median of x is `r median(plot_df$x)`, 49% of the logical vector is true `r mean(plot_df$vector_logical)`
 
 
