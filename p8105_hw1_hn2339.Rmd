@@ -9,55 +9,50 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+#Problem 1 
+```{r HW1_problem1}
+library(tidyverse)
+problem1_df = tibble (
 # random sample of size 10 from unifom distrubution [0,5]
-sample_random = runif(10, min = 0, max = 5)
-# show the random result 
-sample_random
-# take the mean of the variable 
-mean(sample_random)
+sample_random = runif(10, min = 0, max = 5),
 # whether the elements from the sample > 2 
-logical_vector = sample_random > 2
-typeof(logical_vector)
-```
-
-```{r}
+logical_vector = sample_random > 2,
 # create a character vector length of 10
-character = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
-length(character)
-# can not determine the mean because character vector is not numcerial or logical
-mean(character)
-```
-
-```{r}
+character = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
 # create a factor vector lenght of 10
-me.vector = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
-factor.me.vector = factor(me.vector)
-factor.me.vector
-length(factor.me.vector)
+me.vector = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+factor.me.vector = factor(me.vector),
+)
+# take the mean of the variable 
+mean(problem1_df$sample_random)
+#take the mean of logical vector 
+mean(problem1_df$logical_vector)
+# can not determine the mean because character vector is not numcerial or logical
+mean(problem1_df$character)
 # cannot take the mean of factor vector because it is not numerical or logical 
-mean(me.vector)
+mean(problem1_df$me.vector)
 ```
 
-```{r include=FALSE}
+```{r results ='hide'}
 # convert logical variables to numeric 
-as.numeric(logical_vector)
+as.numeric(problem1_df$logical_vector)
 # convert character variables to numeric 
-as.numeric(character)
+as.numeric(problem1_df$character)
 # convert factor variables to numberic 
-as.numeric(me.vector)
+as.numeric(problem1_df$me.vector)
 ```
 
 ```{r}
 # conver character to factor to numeric is successful 
-character_factor_numeric = as.factor(character)
+character_factor_numeric = as.factor(problem1_df$character)
 as.numeric(character_factor_numeric)
 # convert factor to character is successful but character to numeric is not successful 
-factor_character = as.character(me.vector)
+factor_character = as.character(problem1_df$me.vector)
 as.numeric(factor_character)
 ```
 
-```{r HW1_Question2}
+#Problem 2 
+```{r HW1_problem2}
 #from the environment, the size of plot_df is 1000, the mean of x is - 0.01164814 the median of x is -0.03532423, 49% of the logical vector is true 
 set.seed(1)
 library(tidyverse)
@@ -74,10 +69,9 @@ plot_df = tibble(
   
 ggplot(plot_df, aes(x = x, y = y, color = vector_logical )) + geom_point()
 ggsave("plot_df.pdf")
-ggplot(plot_df, aes(x = n, y = f, col = vector_logical )) + geom_point()
-ggplot(plot_df, aes(x = f, y = n, col = vector_logical )) + geom_point()
+ggplot(plot_df, aes(x = x, y = y, col = n )) + geom_point()
+ggplot(plot_df, aes(x = x, y = y, col = f )) + geom_point()
 
 ```
 #The size of plot_df is `r dim(plot_df$x)`, the mean of x is `r mean(plot_df$x)`, the median of x is `r median(plot_df$x)`, 49% of the logical vector is true `r mean(plot_df$vector_logical)`
-
 
